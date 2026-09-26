@@ -1,0 +1,12 @@
+{
+  "name": "Payday Mate",
+  "short_name": "Payday Mate",
+  "description": "A peer-to-peer payday-cycle community for everyday Australians.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#07585c",
+  "icons": [
+    { "src": "/manus-storage/payday-mate-logo_de638b7a.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

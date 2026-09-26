@@ -1,0 +1,5 @@
+# WordPress.com migration findings
+
+WordPress.com allows HTML through the Custom HTML block on all plans, but tags such as `style`, `script`, `iframe`, `form`, `embed`, and `link` require a paid plan with hosting features activated. Custom CSS is available on Personal, Premium, Business, and Commerce plans. The WordPress.com code guide says plugin-enabled plans have no code limits once hosting features are activated. Sources: https://wordpress.com/support/code/ and https://wordpress.com/support/wordpress-editor/blocks/custom-html-block/
+
+For the closest visual match to the Payday Mate React site, the practical route is a WordPress.com site with custom CSS and a Custom HTML block, or a plugin-enabled plan if JavaScript and full custom-code behavior are required. A free plan can reproduce the content and much of the layout with native blocks, but it cannot guarantee identical styling or interactive behavior. Source: https://wordpress.com/support/editing-css/ and https://wordpress.com/support/plan-features/
