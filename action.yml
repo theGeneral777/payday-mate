@@ -1,0 +1,29 @@
+name: Payday Mate Readiness Check
+description: Validate Payday Mate repository structure, Android artifacts, and secret-safety rules before release.
+author: Payday Mate
+branding:
+  icon: shield
+  color: blue
+inputs:
+  run-tests:
+    description: Run the repository TypeScript check and automated tests.
+    required: false
+    default: 'true'
+  check-apk:
+    description: Check that APK artifacts exist and report their sizes and hashes.
+    required: false
+    default: 'true'
+  fail-on-unsigned:
+    description: Fail if an unsigned release APK is present.
+    required: false
+    default: 'false'
+runs:
+  using: composite
+  steps:
+    - name: Run Payday Mate readiness checks
+      shell: bash
+      env:
+        INPUT_RUN_TESTS: ${{ inputs.run-tests }}
+        INPUT_CHECK_APK: ${{ inputs.check-apk }}
+        INPUT_FAIL_ON_UNSIGNED: ${{ inputs.fail-on-unsigned }}
+      run: bash "${{ github.action_path }}/scripts/readiness-check.sh"

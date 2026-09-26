@@ -3,6 +3,20 @@ apply plugin: 'com.android.application'
 android {
     namespace = "com.paydaymate.app"
     compileSdk = rootProject.ext.compileSdkVersion
+    signingConfigs {
+        release {
+            def keystorePath = System.getenv("PAYDAYMATE_KEYSTORE_PATH")
+            def keystorePassword = System.getenv("PAYDAYMATE_KEYSTORE_PASSWORD")
+            def keyAliasValue = System.getenv("PAYDAYMATE_KEY_ALIAS")
+            def keyPasswordValue = System.getenv("PAYDAYMATE_KEY_PASSWORD")
+            if (keystorePath && keystorePassword && keyAliasValue && keyPasswordValue) {
+                storeFile file(keystorePath)
+                storePassword keystorePassword
+                keyAlias keyAliasValue
+                keyPassword keyPasswordValue
+            }
+        }
+    }
     defaultConfig {
         applicationId "com.paydaymate.app"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -20,6 +34,13 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            def signingReady = System.getenv("PAYDAYMATE_KEYSTORE_PATH") &&
+                System.getenv("PAYDAYMATE_KEYSTORE_PASSWORD") &&
+                System.getenv("PAYDAYMATE_KEY_ALIAS") &&
+                System.getenv("PAYDAYMATE_KEY_PASSWORD")
+            if (signingReady) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 }

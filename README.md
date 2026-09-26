@@ -8,13 +8,15 @@ Payday Mate is an Australian peer-to-peer lending community built around payday 
 
 - Full-stack web MVP deployed at [paydaymate-yvjh5tf4.manus.space](https://paydaymate-yvjh5tf4.manus.space)
 - Android Capacitor wrapper included in the project
+- Marketplace-ready composite GitHub Action included as `action.yml`
 - Debug APK available in the GitHub Release assets when published
+- Signed APK build workflow available through manual GitHub Actions dispatch
 - Manus OAuth authentication and database-backed member features included
 - TypeScript validation and automated tests passing at staging time
 
 ## Download
 
-When the release is published, download the APK from the **Releases** page. The debug APK is for testing only. A production Android release requires a user-provided signing key and should be signed before public distribution.
+Download APKs from the **Releases** page. The debug APK is for testing only. The signed release is suitable for installation, but future updates must continue using the same protected signing identity.
 
 ## Membership
 
@@ -44,7 +46,7 @@ pnpm build
 
 ## Marketplace note
 
-The Android APK itself is not a GitHub Marketplace product. GitHub Marketplace requires a GitHub App or GitHub Action integration. The Marketplace preparation document in this repository describes a separate, reviewable integration concept; the APK is distributed through GitHub Releases instead.
+The Android APK itself is distributed through GitHub Releases. The repository now includes a real composite GitHub Action for readiness checks; Marketplace review still requires the owner to submit the Action and provide final policy and support URLs.
 
 ## Contact and support
 
